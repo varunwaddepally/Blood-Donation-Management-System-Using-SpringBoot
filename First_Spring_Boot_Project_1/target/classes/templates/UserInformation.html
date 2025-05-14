@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Information</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top left, #fceabb, #f8b500);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .form-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .form-card h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 26px;
+    }
+
+    .error {
+      color: white;
+      background-color: red;
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #f39c12;
+      box-shadow: 0 0 8px rgba(243, 156, 18, 0.4);
+      outline: none;
+    }
+
+    input[type="submit"] {
+      padding: 12px;
+      background-color: #f39c12;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #e67e22;
+    }
+
+    @media (max-width: 500px) {
+      .form-card {
+        padding: 30px 20px;
+      }
+
+      .form-card h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-card">
+    <h1>User Information</h1>
+    <h1 th:text="${exceptionmsg}" class="error"></h1>
+
+    <form action="user">
+      <input type="text" placeholder="Enter user name" name="username">
+      <input type="email" placeholder="Enter user email id" name="emailid" required>
+      <input type="password" placeholder="Enter user password" name="password" required maxlength="10">
+      <input type="text" placeholder="Enter user mobile number" name="mobilenumber" required minlength="10" maxlength="10">
+      <input type="text" placeholder="Enter user gender" name="gender">
+      <input type="text" placeholder="Enter user address" name="address">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

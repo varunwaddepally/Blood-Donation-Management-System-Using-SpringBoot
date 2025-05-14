@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Donation Management System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #ff5f6d, #ffc371);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #d32f2f;
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #b71c1c;
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    .error-message {
+      margin-bottom: 5px;
+      color: #b71c1c;
+      background-color: #fdecea;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.8mm;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blood Donation Management System</h1>
+        
+        <div  class="error-message">
+      <p th:text="${donorexceptionmsg}"></p>
+    </div>
+        <form action="getDetails" class="section">
+            <input th:value="${email}" name="emailid" type="hidden">
+            <h2 style="color: #333;">Donate Blood</h2>
+            <button type="submit" class="btn">Donate Blood</button>
+        </form>
+
+        <form action="DonorDetails" class="section">
+            <h2 style="color: #333;">Find a Donor</h2>
+            <button type="submit" class="btn">Get Details</button>
+        </form>
+    </div>
+</body>
+</html>

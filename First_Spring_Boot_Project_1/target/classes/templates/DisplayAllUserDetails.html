@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All User Details</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 10px;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    form {
+      margin: 10px 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 300px;
+      font-size: 1rem;
+    }
+
+    input[type="submit"] {
+      background-color: #2d3436;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #00cec9;
+    }
+
+    table {
+      width: 90%;
+      max-width: 1000px;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    th, td {
+      padding: 12px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #2d3436;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #dfe6e9;
+    }
+
+    .action-form {
+      display: inline;
+    }
+
+    .action-form input[type="submit"] {
+      background-color: #d63031;
+      margin: 2px;
+    }
+
+    .action-form input[type="submit"]:hover {
+      background-color: #e17055;
+    }
+
+    @media (max-width: 768px) {
+      input[type="text"] {
+        width: 90%;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>All User Details</h1>
+
+  <form action="userByMobileNumber">
+    <input type="text" placeholder="Enter 10 digit mobile number" name="mobileNumber" required minlength="10" maxlength="10" />
+    <input type="submit" value="Fetch by Mobile" />
+  </form>
+
+  <form action="userByAnyAttribute">
+    <input type="text" placeholder="Search by username, email, password, gender, address" name="userNameorgenderoraddressorpasswordoremailId" />
+    <input type="submit" value="Search" />
+  </form>
+
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Email Id</th>
+      <th>Mobile Number</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th colspan="2">Actions</th>
+    </tr>
+    <tr th:each="userInfo : ${alluserdetails}">
+      <td th:text="${userInfo.username}"></td>
+      <td th:text="${userInfo.emailid}"></td>
+      <td th:text="${userInfo.mobilenumber}"></td>
+      <td th:text="${userInfo.gender}"></td>
+      <td th:text="${userInfo.address}"></td>
+      <td>
+        <form class="action-form" action="updateDetails">
+          <input th:value="${userInfo.emailid}" hidden name="emailid" />
+          <input type="submit" value="Update" />
+        </form>
+      </td>
+      <td>
+        <form class="action-form" action="deleteDetails">
+          <input th:value="${userInfo.emailid}" hidden name="emailId" />
+          <input type="submit" value="Delete" />
+        </form>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

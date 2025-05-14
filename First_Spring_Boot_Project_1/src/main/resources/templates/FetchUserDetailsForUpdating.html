@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Detail</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2d3436;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      width: 40%;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: 0.3s ease;
+    }
+
+    input[readonly] {
+      background-color: #f0f0f0;
+    }
+
+    input:focus {
+      border-color: #f39c12;
+      outline: none;
+      box-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
+    }
+
+    .btn {
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #e17055;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #d35400;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>User Details</h2>
+    <form action="display">
+      <table>
+        <tr>
+          <th><label>Username:</label></th>
+          <td><input type="text" th:value="${user.username}" name="username" /></td>
+        </tr>
+        <tr>
+          <th><label>Email ID:</label></th>
+          <td><input type="text" th:value="${user.emailid}" name="emailid" readonly /></td>
+        </tr>
+        <tr>
+          <th><label>Mobile Number:</label></th>
+          <td><input type="text" th:value="${user.mobilenumber}" name="mobilenumber" /></td>
+        </tr>
+        <tr>
+          <th><label>Password:</label></th>
+          <td><input type="password" th:value="${user.password}" name="password" /></td>
+        </tr>
+        <tr>
+          <th><label>Gender:</label></th>
+          <td><input type="text" th:value="${user.gender}" name="gender" /></td>
+        </tr>
+        <tr>
+          <th><label>Address:</label></th>
+          <td><input type="text" th:value="${user.address}" name="address" /></td>
+        </tr>
+      </table>
+      <input type="submit" value="Update" class="btn" />
+    </form>
+  </div>
+</body>
+</html>

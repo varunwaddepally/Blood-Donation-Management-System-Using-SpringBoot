@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Donation Management System</title>
+  <style>
+    @font-face {
+      font-family: 'Bookman Old Style';
+      src: local('Bookman Old Style'), local('BookmanOldStyle');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Bookman Old Style', serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff6b6b, #ffcc70, #ffeaa7, #b2bec3);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      overflow-y: scroll;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .logo img {
+    margin-left:-1vw;
+      width: 6vw;
+      height: 12vh;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-buttons form {
+      display: inline;
+    }
+
+    .nav-buttons button {
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: transparent;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .nav-buttons button:hover {
+      transform: scale(1.1);
+      background-color: #fff;
+      color: #e74c3c;
+    }
+
+    .container {
+      position: relative;
+      max-width: 900px;
+      margin: 2% auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      color: #000;
+      text-align: left;
+    }
+
+    .container::before {
+      content: "";
+      background: url('https://cdn.dribbble.com/userupload/26255787/file/original-a3ef59a8a1dd7f1349d531a859901b26.png?resize=400x300') no-repeat center center/cover;
+      opacity: 0.2;
+      position: absolute;
+      top: 18vw;
+      left: 15vw;
+      width: 70%;
+      height:70%;
+      z-index: -1;
+      border-radius: 25vw;
+    }
+
+    .container h1 {
+      font-size: 2.7rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      color: #5e35b1;
+    }
+
+    .container p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .container h3 {
+      font-size: 1.2rem;
+      color: lightblue;
+      margin-left: -3vw;
+      margin-top: -1vw;
+      margin-bottom: 1vw;
+      text-align: center;
+    }
+
+    .indent {
+      text-indent: 8em;
+    }
+
+    .quote {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .quote .main-text {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #8e44ad;
+    }
+
+    .quote .sub-text {
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHMM09PJRaU-qIPJvD-Blm2SE35bOau86zV1ViHW5RU87DMrUlGQwWMy80MEiGGB64rCQ&usqp=CAU" alt="Blood Donation Logo">
+      Blood Donation
+    </div>
+    <div class="nav-buttons">
+      <form action="userLogin">
+        <button type="submit">Login</button>
+      </form>
+      <form action="registrationPage">
+        <button type="submit">Register</button>
+      </form>
+      <form action="#">
+        <button type="submit">Contact Us</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Blood Donation Management System</h1>
+    <h3><em> - Donate Blood Or Find A Donor.</em></h3>
+    <p>
+      Blood donation is the voluntary act of giving blood to be used for transfusions or made into medications. This noble gesture saves lives and is crucial in emergencies, surgeries, and for individuals suffering from certain medical conditions like anemia, cancer, and hemophilia.
+    </p>
+
+    <p class="indent">
+        The history of blood donation dates back to the 17th century when early experiments with transfusion began. With time and research, blood donation evolved into a safe and systematic process. Today, World Blood Donor Day is celebrated every year on June 14th to honor the selfless donors who save lives and to raise awareness about the need for regular donations.
+    </p>
+
+    <p class="indent">
+        Donating blood is essential as it ensures a steady supply of blood for those in need. A single donation can save up to three lives. It also helps in maintaining public health infrastructure and in preparedness for disasters or large-scale emergencies.
+    </p>
+
+    <p>
+      Some of the major blood donation organizations in Hyderabad include:
+      <ul>
+        <li>Red Cross Society</li>
+        <li>Lions Blood Bank</li>
+        <li>Rotary Blood Bank</li>
+        <li>Chiranjeevi Blood Bank</li>
+        <li>Indian Red Cross Blood Centre</li>
+      </ul>
+      India has over 3,000 recognized blood donation organizations spread across the country, working tirelessly to ensure the availability of safe blood.
+    </p>
+
+    <p class="indent">
+        To boost blood production naturally, individuals should consume a balanced diet rich in iron, vitamin B12, folic acid, and protein. Foods such as leafy greens, lean meats, citrus fruits, and legumes are highly recommended. The ideal age to donate blood is between 18 and 65 years, and the donor should be in good health and weigh more than 50 kg.
+    </p>
+
+    <div class="quote">
+      <div class="main-text">Donate blood, save lives –</div>
+      <div class="sub-text">because every drop counts and every donor is a hero in someone's story.</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <!-- Link to Google Fonts (Poppins font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apply the background image */
+        body {
+            font-family: 'Lobster', sans-serif;
+
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('https://png.pngtree.com/png-clipart/20220226/ourmid/pngtree-creative-blood-donation-logo-picture-png-image_4399736.png') no-repeat center center fixed;
+            background-size: cover; /* Ensure the image covers the screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Add the blur effect to the background image only */
+        .blurred-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://png.pngtree.com/png-clipart/20220226/ourmid/pngtree-creative-blood-donation-logo-picture-png-image_4399736.png') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(2px); /* Apply blur to the background */
+            z-index: -1; /* Place it behind the login container */
+        }
+
+        /* Apply a transparent login container */
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            padding: 40px 50px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Style the heading with gradient text */
+        h1 {
+            font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+            font-size: 2rem;
+            background: linear-gradient(45deg, #ff6347, #ffeb3b); /* Red to Yellow Gradient */
+            -webkit-background-clip: text; /* Clip the gradient to the text */
+            color: transparent; /* Make the text color transparent to show the gradient */
+            margin-bottom: 20px;
+        }
+
+        /* Style the input fields */
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #2575fc;
+            outline: none;
+        }
+
+        /* Style the submit button */
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #2575fc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6a11cb;
+        }
+
+        /* Add some spacing between form elements */
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Blurred background -->
+    <div class="blurred-background"></div>
+
+    <!-- Login form container -->
+    <div class="login-container">
+        <h1>User Login</h1>
+        <form action="userLoginValidation">
+            <div class="form-group">
+                <input type="text" placeholder="Enter Login Email id" name="emailid" required><br>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Enter Password" name="password" required><br>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Donor Details</title>
+    <!-- Link to Google Fonts (Poppins font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Apply light background color */
+        body {
+            font-family: 'Poppins', sans-serif; /* Use Poppins font */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f0f4f8; /* Light Gray background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        /* Center the content and add padding */
+        center {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        /* Apply text gradient to the header */
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #2a9d8f, #264653); /* Green to Dark Green Gradient */
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 30px;
+        }
+
+        /* Style the search form */
+        .search-form {
+            background: rgba(255, 255, 255, 0.9); /* Light semi-transparent background */
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25vw;  /* Center the form and reduce its size */
+            margin-top: 20px;
+            margin-left: 35vw;
+        }
+
+        .search-form input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+            width: 60%;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-form input[type="text"]:focus {
+            border-color: #2575fc;
+            outline: none;
+        }
+
+        .search-form input[type="submit"] {
+            padding: 8px;
+            width: 25%; /* Reduced width to match the size of the request button */
+            background-color: #2575fc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-form input[type="submit"]:hover {
+            background-color: #6a11cb;
+        }
+
+        /* Style the table */
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: #ffffff; /* Solid color for table background */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 8px; /* Decreased padding for compact rows */
+            text-align: center;
+            border: 1px solid #ddd;
+            font-size: 0.9rem; /* Smaller font size */
+        }
+
+        th {
+            background-color: #2a9d8f; /* Solid green color for header */
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9; /* Light background for data rows */
+        }
+
+        /* Alternate stripped rows for the table */
+        tr:nth-child(even) td {
+            background-color: #f1f1f1; /* Light Gray for even rows */
+        }
+
+        tr:nth-child(odd) td {
+            background-color: #ffffff; /* White for odd rows */
+        }
+
+        /* Button style inside the table (request button) */
+        table form input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            background-color: #2575fc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        table form input[type="submit"]:hover {
+            background-color: #6a11cb;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Find Donor Details</h1>
+        
+        <!-- Search Form -->
+        <form action="getDonorDetails" class="search-form">
+            <input type="text" placeholder="Search by address or blood group" name="addressorbloodgroup">
+            <input type="submit" value="Search">
+        </form>
+        
+        <!-- Table to display donor details -->
+        <table>
+            <tr>
+            	<th>Donor ID</th>
+                <th>Name</th>
+                <th>Email Id</th>
+                <th>Mobile Number</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Blood Group</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="donor:${donor1}">
+            	<td th:text="${donor.id}"></td>
+                <td th:text="${donor.name}"></td>
+                <td th:text="${donor.emailid}"></td>
+                <td th:text="${donor.mobilenumber}"></td>
+                <td th:text="${donor.gender}"></td>
+                <td th:text="${donor.address}"></td>
+                <td th:text="${donor.bloodgroup}"></td>
+                <td th:text="${donor.age}"></td>
+                <td>
+                    <form action="requestPage">
+                        <input th:value="${donor.emailid}" hidden="true" name="emailid">
+                        <input type="submit" value="Request">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
